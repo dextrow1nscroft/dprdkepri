@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 SMKN 1 Tanjung Pinang</title>
+    <style>
+        /* WEB3 GLASSMORPHISM DESIGN */
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --accent-neon: #00f2fe;
+            --accent-purple: #7000ff;
+            --accent-green: #10b981;
+            --text-light: #f1f5f9;
+        }
+
+        /* LOADING SCREEN */
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease;
+        }
+
+        #loader h2 {
+            color: var(--accent-neon);
+            font-size: 1.8rem;
+            letter-spacing: 5px;
+            animation: pulse 1.5s infinite;
+            text-shadow: 0 0 20px var(--accent-neon);
+            text-align: center;
+        }
+
+        @keyframes pulse { 0%, 100% { opacity: 0.4; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1); } }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spinner { width: 40px; height: 40px; border: 3px solid transparent; border-top: 3px solid var(--accent-neon); border-radius: 50%; animation: spin 1s linear infinite; margin-top: 20px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a, #000000);
+            color: var(--text-light);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        header { padding: 50px 20px; text-align: center; }
+        header h1 { font-size: 2.5rem; background: linear-gradient(to right, #00f2fe, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1px; }
+
+        nav { display: flex; justify-content: center; gap: 12px; padding: 20px; position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); }
+        nav button { background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; padding: 10px 22px; border-radius: 50px; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
+        nav button:hover, nav button.active { background: var(--accent-neon); color: #000; font-weight: bold; box-shadow: 0 0 15px var(--accent-neon); }
+
+        .container { max-width: 850px; margin: 30px auto; padding: 30px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 24px; backdrop-filter: blur(20px); }
+        .page { display: none; animation: slideUp 0.6s ease; }
+        .page.active { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* NEWS ACCORDION */
+        .news-card { background: rgba(255,255,255,0.03); margin-bottom: 15px; border-radius: 18px; border: 1px solid var(--glass-border); overflow: hidden; transition: 0.3s; }
+        .news-card:hover { border-color: var(--accent-neon); }
+        .news-title { padding: 22px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--accent-neon); }
+        .news-content { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; background: rgba(0,0,0,0.2); }
+        .news-card.open .news-content { max-height: 2500px; padding: 25px; border-top: 1px solid var(--glass-border); }
+
+        /* BOX SARAN PENCEGAHAN */
+        .prevention-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--accent-green);
+            border-radius: 12px;
+        }
+        .prevention-box h4 { margin: 0 0 10px 0; color: var(--accent-green); display: flex; align-items: center; }
+        .prevention-box h4::before { content: "🛡️"; margin-right: 10px; }
+
+        .name-tag { background: rgba(255,255,255,0.05); margin: 10px 0; padding: 15px; border-radius: 12px; border-left: 4px solid var(--accent-purple); display: flex; align-items: center; }
+        footer { text-align: center; padding: 60px; color: #475569; font-size: 0.85rem; border-top: 1px solid var(--glass-border); margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<div id="loader">
+    <h2>SMKN 1 TANJUNG PINANG</h2>
+    <div class="spinner"></div>
+</div>
+
+<header>
+    <div style="background: rgba(0, 242, 254, 0.1); color: var(--accent-neon); padding: 6px 16px; border-radius: 20px; display: inline-block; font-size: 0.75rem; border: 1px solid var(--accent-neon); margin-bottom: 10px;">STUDENT PROJECT 2026</div>
+    <h1>- MONITORING KARHUTLA INDONESIA -</h1>
+</header>
+
+<nav>
+    <button onclick="showPage('home')" id="btn-home" class="active">Beranda</button>
+    <button onclick="showPage('berita')" id="btn-berita">Informasi Detail</button>
+    <button onclick="showPage('profil')" id="id-profil">Profil Tim</button>
+</nav>
+
+<div class="container">
+
+    <div id="home" class="page active">
+        <h2 style="text-align: center; color: var(--accent-neon);">Selamat Datang</h2>
+        <div style="text-align: center; color: #94a3b8;">
+            <p style="font-size: 1.2rem; color: #fff;"><strong>SMKN 1 Tanjung Pinang</strong></p>
+            <p>Disini Saya Memberi Informasi Yang Berada Di Indonesia</p>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <button onclick="showPage('berita')" style="background: var(--accent-purple); color: white; border: none; padding: 14px 35px; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(112, 0, 255, 0.4);">Jelajahi Berita</button>
+        </div>
+    </div>
+
+    <div id="berita" class="page">
+        <h2 style="color: #ef4444; margin-bottom: 25px; display: flex; align-items: center;">🔥 Laporan Analisis & Edukasi</h2>
+
+        <div class="news-card">
+            <div class="news-title" onclick="toggleNews(this)">
+                <span>1. Krisis Lahan Gambut: Ancaman Tak Kasat Mata</span>
+                <span>+</span>
+            </div>
+            <div class="news-content">
+                <p>Kebakaran di lahan gambut adalah salah satu bencana lingkungan paling kompleks di Indonesia. Api tidak hanya membakar pepohonan di permukaan, tetapi juga merambat melalui lapisan organik di bawah tanah hingga kedalaman meteran. Hal ini membuat proses pemadaman menjadi sangat lama dan menghabiskan jutaan liter air.</p>
+                <div class="prevention-box">
+                    <h4>Saran & Pencegahan:</h4>
+                    <ul>
+                        <li>Hindari membuka lahan pertanian dengan cara membakar (Slash and Burn).</li>
+                        <li>Laporkan segera jika melihat kepulan asap di area gambut meskipun apinya kecil.</li>
+                        <li>Mendukung pembangunan sekat kanal untuk menjaga kelembaban lahan gambut agar tidak kering saat kemarau.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <div class="news-title" onclick="toggleNews(this)">
+                <span>2. Teknologi Satelit & Deteksi Hotspot Real-Time</span>
+                <span>+</span>
+            </div>
+            <div class="news-content">
+                <p>Pemanfaatan data satelit Terra dan Aqua memungkinkan pemerintah mendeteksi titik panas (hotspot) secara instan. Koordinat yang didapat langsung dikirim ke tim darat (Manggala Agni) untuk dilakukan verifikasi lapangan. Kecepatan informasi adalah kunci utama sebelum api berkembang menjadi kebakaran besar yang tak terkendali.</p>
+                <div class="prevention-box">
+                    <h4>Saran & Pencegahan:</h4>
+                    <ul>
+                        <li>Masyarakat dapat memantau titik api melalui aplikasi resmi seperti "Sipongi" milik KLHK.</li>
+                        <li>Perusahaan perkebunan wajib memiliki menara pantau dan drone pengawas di area konsesinya.</li>
+                        <li>Pastikan ketersediaan embung air di titik-titik rawan kebakaran.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <div class="news-title" onclick="toggleNews(this)">
+                <span>3. Dampak Kabut Asap terhadap Kesehatan Publik</span>
+                <span>+</span>
+            </div>
+            <div class="news-content">
+                <p>Paparan partikel halus (PM2.5) dari asap kebakaran hutan dapat menembus jauh ke dalam paru-paru dan masuk ke aliran darah. Hal ini meningkatkan risiko penyakit pernapasan, jantung, hingga gangguan kehamilan. Ekonomi lokal pun lumpuh total ketika jarak pandang hanya tersisa kurang dari 100 meter.</p>
+                <div class="prevention-box">
+                    <h4>Saran & Pencegahan:</h4>
+                    <ul>
+                        <li>Gunakan masker standar N95 jika indeks udara menunjukkan kategori "Tidak Sehat".</li>
+                        <li>Tutup celah ventilasi rumah dengan kain lembab untuk meminimalkan masuknya partikel asap.</li>
+                        <li>Konsumsi air putih lebih banyak dan segera periksa ke puskesmas jika mengalami sesak napas.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <div class="news-title" onclick="toggleNews(this)">
+                <span>4. Sanksi Hukum Tegas Bagi Pelaku Pembakaran</span>
+                <span>+</span>
+            </div>
+            <div class="news-content">
+                <p>Hukum di Indonesia sangat tegas terhadap pembakaran hutan, baik yang dilakukan individu maupun perusahaan. Pelaku dapat dijerat UU Lingkungan Hidup dengan ancaman penjara hingga 10 tahun dan denda miliaran rupiah. Pengawasan kini diperketat dengan melibatkan intelijen hutan dan analisis forensik kebakaran.</p>
+                <div class="prevention-box">
+                    <h4>Saran & Pencegahan:</h4>
+                    <ul>
+                        <li>Jangan membuang puntung rokok sembarangan di area hutan atau lahan kering.</li>
+                        <li>Segera lapor ke kepolisian jika melihat aktivitas mencurigakan yang mengarah pada pembakaran lahan.</li>
+                        <li>Edukasi warga sekitar tentang bahaya hukum dan kerugian membakar hutan secara sengaja.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <div class="news-title" onclick="toggleNews(this)">
+                <span>5. Restorasi Gambut: Menanam Kembali Harapan</span>
+                <span>+</span>
+            </div>
+            <div class="news-content">
+                <p>Setelah api padam, pekerjaan besar berikutnya adalah restorasi. Penanaman kembali vegetasi asli rawa gambut sangat penting untuk mengembalikan ekosistem. Hutan yang sehat secara alami akan lebih tahan terhadap api karena memiliki siklus air yang terjaga dengan baik.</p>
+                <div class="prevention-box">
+                    <h4>Saran & Pencegahan:</h4>
+                    <ul>
+                        <li>Dukung kampanye reboisasi dan penanaman pohon di lahan kritis.</li>
+                        <li>Kurangi penggunaan kertas dan tissue secara berlebihan untuk mengurangi beban eksploitasi hutan.</li>
+                        <li>Mulai beralih ke praktik pertanian berkelanjutan tanpa metode bakar lahan.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="profil" class="page">
+        <h2 style="color: var(--accent-neon);">The Developers</h2>
+        <p>Proyek informasi digital ini disusun oleh kelompok siswa <strong>SMKN 1 TANJUNG PINANG</strong>:</p>
+        <div class="name-tag"><span>01.</span> &nbsp; Dimas Prayoga</div>
+        <div class="name-tag"><span>02.</span> &nbsp; Andre</div>
+        <div class="name-tag"><span>03.</span> &nbsp; Ridho</div>
+        <div class="name-tag"><span>04.</span> &nbsp; Rehan</div>
+        <div class="name-tag"><span>05.</span> &nbsp; Wira</div>
+        <p style="margin-top: 30px; font-size: 0.9rem; color: #64748b;">Dibangun menggunakan HTML5, CSS3 Modern (Glassmorphism), dan Vanilla JavaScript.</p>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2026 Web3 Experience - SMKN 1 TANJUNG PINANG <br>
+    Teknologi Informasi & Komunikasi
+</footer>
+
+<script>
+    // FUNGSI LOADING SCREEN
+    window.addEventListener('load', function() {
+        const loader = document.getElementById('loader');
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => { loader.style.visibility = 'hidden'; }, 800);
+        }, 1500);
+    });
+
+    // FUNGSI NAVIGASI HALAMAN
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        
+        document.getElementById(pageId).classList.add('active');
+        
+        // Sinkronisasi tombol aktif
+        const btnId = pageId === 'profil' ? 'id-profil' : 'btn-' + pageId;
+        document.getElementById(btnId).classList.add('active');
+        
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // FUNGSI ACCORDION BERITA
+    function toggleNews(element) {
+        const card = element.parentElement;
+        const isOpen = card.classList.contains('open');
+        
+        // Tutup berita lain agar rapi
+        document.querySelectorAll('.news-card').forEach(c => {
+            c.classList.remove('open');
+            c.querySelector('.news-title span:last-child').innerText = '+';
+        });
+
+        if (!isOpen) {
+            card.classList.add('open');
+            element.querySelector('span:last-child').innerText = '−';
+        }
+    }
+</script>
+
+</body>
+</html>
