@@ -7,92 +7,107 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --warna-utama: #0056b3; 
+            --warna-gelap: #003d82;
             --warna-aksen: #ffc107;
-            --warna-teks: #333;
-            --bg-light: #f8f9fa;
+            --bg-light: #f4f7f6;
         }
         
-        body { font-family: 'Roboto', sans-serif; background-color: var(--bg-light); color: var(--warna-teks); }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: #333; overflow-x: hidden; }
 
-        /* 1. Top Bar & Navbar */
-        .top-info-bar { background-color: #0d2642; color: #fff; font-size: 0.85rem; padding: 5px 0; }
-        .navbar-jdih { background-color: #fff; border-bottom: 4px solid var(--warna-utama); padding: 15px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .judul-instansi { color: var(--warna-utama); font-weight: 800; font-size: 1.3rem; line-height: 1.1; }
-        .sub-judul { color: #666; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; }
-        .nav-link { font-weight: 600; color: #444 !important; text-transform: uppercase; font-size: 0.9rem; padding: 0 15px !important; }
-        .nav-link:hover { color: var(--warna-utama) !important; }
+        /* 1. TOP BAR & NAVBAR */
+        .top-info-bar { background-color: #0b2341; color: #eee; font-size: 0.85rem; padding: 6px 0; }
+        .navbar-jdih { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 15px 0; border-top: 4px solid var(--warna-aksen); }
+        .judul-instansi { color: var(--warna-utama); font-weight: 800; font-size: 1.4rem; line-height: 1.1; letter-spacing: -0.5px; }
+        .sub-judul { color: #666; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+        .nav-link { font-weight: 600; color: #555 !important; margin-left: 15px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--warna-utama) !important; }
 
-        /* Running Text */
-        .running-text-container { background: var(--warna-aksen); color: #000; font-weight: bold; font-size: 0.9rem; padding: 8px 0; }
-
-        /* 2. Hero Section */
-        .hero-search-section {
-            background: linear-gradient(rgba(0, 40, 100, 0.85), rgba(0, 40, 100, 0.85)), url('https://source.unsplash.com/random/1920x800/?tanjungpinang,island');
+        /* 2. HERO & SEARCH */
+        .hero-section {
+            background: linear-gradient(rgba(0, 50, 120, 0.85), rgba(0, 30, 80, 0.9)), url('https://source.unsplash.com/random/1920x800/?tanjungpinang,government');
             background-size: cover;
             background-position: center;
+            padding: 80px 0 120px;
             color: white;
-            padding: 100px 0 140px;
             text-align: center;
         }
+        /* Search Box Floating */
+        .search-container {
+            background: white; padding: 30px; border-radius: 12px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1); margin-top: -60px; position: relative; z-index: 10;
+        }
+        .btn-cari { background: var(--warna-utama); color: white; font-weight: 600; border-radius: 8px; border: none; padding: 12px; }
+        .btn-cari:hover { background: var(--warna-gelap); }
+
+        /* 3. SECTION HEADER STYLE */
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h3 { font-weight: 800; color: #333; position: relative; display: inline-block; }
+        .section-header h3::after { content: ''; display: block; width: 50px; height: 4px; background: var(--warna-aksen); margin: 10px auto; border-radius: 2px; }
+
+        /* 4. FITUR BARU: Quick Links (Jalur Cepat) */
+        .quick-link-item {
+            background: white; padding: 20px; border-radius: 10px; text-align: center;
+            transition: 0.3s; border: 1px solid #eee; height: 100%; cursor: pointer;
+        }
+        .quick-link-item:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-color: var(--warna-utama); }
+        .icon-box { 
+            width: 60px; height: 60px; background: #eef2ff; color: var(--warna-utama); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            font-size: 1.5rem; margin: 0 auto 15px; 
+        }
+
+        /* 5. STATISTIK (Fixed Height) */
+        .chart-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .chart-wrapper { position: relative; height: 300px; width: 100%; }
+
+        /* 6. PRODUK HUKUM TERBARU (RESTORED) */
+        .doc-new-card {
+            background: white; border-radius: 10px; overflow: hidden; border: 1px solid #eee; margin-bottom: 20px;
+            transition: 0.3s; display: flex; align-items: center; padding: 20px; position: relative;
+        }
+        .doc-new-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-color: var(--warna-utama); transform: translateX(5px); }
+        .doc-new-card::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--warna-utama);
+        }
+        .doc-badge { font-size: 0.75rem; padding: 5px 10px; border-radius: 20px; font-weight: 700; text-transform: uppercase; }
+        .bg-perda { background: #e0f2fe; color: #0284c7; }
+        .bg-keputusan { background: #fef3c7; color: #d97706; }
+
+        /* 7. BERITA (FITUR BARU) */
+        .news-card { border: none; border-radius: 12px; overflow: hidden; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; height: 100%; }
+        .news-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .news-img { height: 180px; object-fit: cover; width: 100%; }
+        .news-body { padding: 20px; }
+        .news-date { font-size: 0.8rem; color: #888; margin-bottom: 10px; display: block; }
+        .news-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; line-height: 1.4; }
+        .news-title a { text-decoration: none; color: #333; transition: 0.2s; }
+        .news-title a:hover { color: var(--warna-utama); }
+
+        /* 8. FOOTER & LINK LEMBAGA */
+        .link-lembaga-section { background: white; padding: 40px 0; border-top: 1px solid #eee; }
+        .logo-item { opacity: 0.5; transition: 0.3s; filter: grayscale(100%); }
+        .logo-item:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
         
-        /* Box Pencarian */
-        .search-box-container {
-            background: #fff; padding: 35px; border-radius: 10px; box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            margin-top: -80px; position: relative; z-index: 10; border-top: 5px solid var(--warna-utama);
-        }
-        .btn-cari { background-color: var(--warna-utama); color: white; font-weight: bold; border: none; }
-        .btn-cari:hover { background-color: #003d82; }
-
-        /* 3. Statistik Chart (PERBAIKAN UTAMA DI SINI) */
-        .chart-card { 
-            background: #fff; 
-            padding: 20px; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            border: 1px solid #eee;
-        }
-        /* Wrapper ini mengunci tinggi grafik agar tidak hancur */
-        .chart-wrapper {
-            position: relative;
-            height: 350px; /* Tinggi Fix */
-            width: 100%;
-        }
-
-        /* 4. Tautan Lembaga */
-        .link-lembaga-section { background: #fff; padding: 50px 0; border-top: 1px solid #eee; }
-        .logo-wrapper { padding: 20px; filter: grayscale(100%); opacity: 0.6; transition: all 0.4s ease; display: block; }
-        .logo-wrapper:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
-        .logo-placeholder { display: flex; flex-direction: column; align-items: center; color: #555; }
-        .logo-placeholder i { font-size: 2.5rem; margin-bottom: 10px; color: var(--warna-utama); }
-
-        /* Footer */
-        footer { background-color: #0d2642; color: #b0c4de; padding: 60px 0 30px; }
-        footer a { color: #b0c4de; text-decoration: none; }
-        footer a:hover { color: var(--warna-aksen); }
+        footer { background: #0b2341; color: #cbd5e1; padding: 60px 0 30px; }
+        footer h5 { color: white; font-weight: 700; margin-bottom: 25px; }
+        footer a { color: #cbd5e1; text-decoration: none; transition: 0.2s; }
+        footer a:hover { color: var(--warna-aksen); padding-left: 5px; }
     </style>
 </head>
 <body>
 
     <div class="top-info-bar">
         <div class="container d-flex justify-content-between align-items-center">
-            <div><i class="fas fa-phone-alt me-2 text-warning"></i> (0771) 1234567 | humas@dprd.kepriprov.go.id</div>
+            <div><i class="fas fa-phone me-2 text-warning"></i> (0771) 1234567 <span class="mx-2">|</span> <i class="fas fa-envelope me-2 text-warning"></i> humas@dprd.kepri.go.id</div>
             <div class="d-none d-md-block">
-                <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="running-text-container">
-        <div class="container">
-            <div class="d-flex align-items-center">
-                <span class="badge bg-dark me-3">INFO</span>
-                <marquee scrollamount="6">Selamat Datang di JDIH DPRD Provinsi Kepulauan Riau. Update Terbaru: Perda Tata Ruang Wilayah telah disahkan.</marquee>
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -100,7 +115,7 @@
     <nav class="navbar navbar-expand-lg navbar-jdih sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <i class="fas fa-landmark fa-3x text-warning me-3"></i>
+                <i class="fas fa-landmark fa-2x text-warning me-3"></i>
                 <div>
                     <div class="judul-instansi">JDIH DPRD</div>
                     <div class="sub-judul">PROVINSI KEPULAUAN RIAU</div>
@@ -109,59 +124,234 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Beranda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Produk Hukum</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#statistik">Statistik</a></li>
-                    <li class="nav-item ms-3"><a class="btn btn-outline-primary fw-bold px-4" href="#">LOGIN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Statistik</a></li>
+                    <li class="nav-item ms-3"><a href="#" class="btn btn-primary btn-sm px-4 rounded-pill fw-bold">Login Admin</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="hero-search-section">
+    <section class="hero-section">
         <div class="container">
-            <h1 class="display-5 fw-bold mb-2">JDIH DPRD KEPULAUAN RIAU</h1>
-            <p class="lead opacity-75">Jaringan Dokumentasi dan Informasi Hukum Terpadu</p>
+            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold"><i class="fas fa-bell me-2"></i>Portal Resmi</span>
+            <h1 class="display-5 fw-bold mb-3">Dokumen Hukum Terpadu</h1>
+            <p class="lead opacity-75 mb-0">DPRD Provinsi Kepulauan Riau</p>
         </div>
     </section>
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <div class="search-box-container">
-                    <h5 class="mb-4 fw-bold"><i class="fas fa-search text-primary me-2"></i>Cari Dokumen</h5>
+                <div class="search-container">
                     <form class="row g-3">
-                        <div class="col-md-3"><select class="form-select bg-light py-3"><option>Semua Jenis</option><option>Perda</option></select></div>
-                        <div class="col-md-3"><select class="form-select bg-light py-3"><option>Tahun</option><option>2026</option></select></div>
-                        <div class="col-md-4"><input type="text" class="form-control bg-light py-3" placeholder="Kata kunci..."></div>
-                        <div class="col-md-2"><button type="submit" class="btn btn-cari w-100 h-100">Cari</button></div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-bold text-muted">Jenis Dokumen</label>
+                            <select class="form-select bg-light border-0"><option>Semua Jenis</option><option>Peraturan Daerah</option></select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-bold text-muted">Tahun</label>
+                            <select class="form-select bg-light border-0"><option>Semua Tahun</option><option>2026</option></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold text-muted">Kata Kunci</label>
+                            <input type="text" class="form-control bg-light border-0" placeholder="Contoh: Tata Ruang...">
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button type="submit" class="btn btn-cari w-100">Cari <i class="fas fa-search ms-1"></i></button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <section id="statistik" class="py-5 mt-4" style="background-color: #f1f5f9;">
+    <section class="py-5">
         <div class="container">
-            <div class="text-center mb-5">
-                <h3 class="fw-bold text-primary">DATA STATISTIK</h3>
-                <p class="text-muted">Rekapitulasi jumlah produk hukum daerah</p>
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="quick-link-item">
+                        <div class="icon-box"><i class="fas fa-gavel"></i></div>
+                        <h6 class="fw-bold">Peraturan Daerah</h6>
+                        <small class="text-muted">Lihat Semua Perda</small>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="quick-link-item">
+                        <div class="icon-box"><i class="fas fa-book"></i></div>
+                        <h6 class="fw-bold">Pergub</h6>
+                        <small class="text-muted">Peraturan Gubernur</small>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="quick-link-item">
+                        <div class="icon-box"><i class="fas fa-users"></i></div>
+                        <h6 class="fw-bold">Keputusan DPRD</h6>
+                        <small class="text-muted">Kebijakan Dewan</small>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="quick-link-item">
+                        <div class="icon-box"><i class="fas fa-file-contract"></i></div>
+                        <h6 class="fw-bold">Naskah Akademik</h6>
+                        <small class="text-muted">Kajian Hukum</small>
+                    </div>
+                </div>
             </div>
-            
+        </div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-bold m-0" style="color: var(--warna-utama);">Produk Hukum Terbaru</h3>
+                <a href="#" class="btn btn-outline-primary btn-sm rounded-pill px-3">Lihat Semua <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="doc-new-card">
+                        <div class="me-3 text-center">
+                            <i class="far fa-file-pdf fa-3x text-danger"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="mb-2">
+                                <span class="doc-badge bg-perda me-2">PERDA</span>
+                                <span class="text-muted small"><i class="far fa-clock me-1"></i> 25 Jan 2026</span>
+                            </div>
+                            <h6 class="fw-bold mb-1">Peraturan Daerah Nomor 1 Tahun 2026</h6>
+                            <p class="text-muted small mb-0">Tentang Rencana Pembangunan Jangka Menengah Daerah (RPJMD).</p>
+                        </div>
+                        <div class="ms-3">
+                            <a href="#" class="btn btn-sm btn-light border rounded-circle" title="Download"><i class="fas fa-download text-primary"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="doc-new-card">
+                        <div class="me-3 text-center">
+                            <i class="far fa-file-pdf fa-3x text-danger"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="mb-2">
+                                <span class="doc-badge bg-keputusan me-2">KEPUTUSAN</span>
+                                <span class="text-muted small"><i class="far fa-clock me-1"></i> 20 Jan 2026</span>
+                            </div>
+                            <h6 class="fw-bold mb-1">Keputusan DPRD Nomor 05 Tahun 2026</h6>
+                            <p class="text-muted small mb-0">Tentang Penetapan Program Pembentukan Peraturan Daerah.</p>
+                        </div>
+                        <div class="ms-3">
+                            <a href="#" class="btn btn-sm btn-light border rounded-circle" title="Download"><i class="fas fa-download text-primary"></i></a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-6">
+                    <div class="doc-new-card">
+                        <div class="me-3 text-center">
+                            <i class="far fa-file-pdf fa-3x text-danger"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="mb-2">
+                                <span class="doc-badge bg-perda me-2">PERDA</span>
+                                <span class="text-muted small"><i class="far fa-clock me-1"></i> 15 Jan 2026</span>
+                            </div>
+                            <h6 class="fw-bold mb-1">Peraturan Daerah Nomor 12 Tahun 2025</h6>
+                            <p class="text-muted small mb-0">Tentang Fasilitasi Pencegahan dan Pemberantasan Penyalahgunaan Narkotika.</p>
+                        </div>
+                        <div class="ms-3">
+                            <a href="#" class="btn btn-sm btn-light border rounded-circle" title="Download"><i class="fas fa-download text-primary"></i></a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-6">
+                    <div class="doc-new-card">
+                        <div class="me-3 text-center">
+                            <i class="far fa-file-pdf fa-3x text-danger"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="mb-2">
+                                <span class="doc-badge bg-keputusan me-2">KEPUTUSAN</span>
+                                <span class="text-muted small"><i class="far fa-clock me-1"></i> 10 Jan 2026</span>
+                            </div>
+                            <h6 class="fw-bold mb-1">Keputusan Pimpinan DPRD No 02/2026</h6>
+                            <p class="text-muted small mb-0">Penyempurnaan Hasil Evaluasi Menteri Dalam Negeri.</p>
+                        </div>
+                        <div class="ms-3">
+                            <a href="#" class="btn btn-sm btn-light border rounded-circle" title="Download"><i class="fas fa-download text-primary"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" style="background: #eef2ff;">
+        <div class="container">
+            <div class="section-header">
+                <h3>Statistik Data</h3>
+                <p class="text-muted">Transparansi Data Produk Hukum Daerah</p>
+            </div>
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="chart-card">
-                        <h5 class="fw-bold text-center mb-3">Jumlah Dokumen Hukum</h5>
+                        <h6 class="fw-bold text-center mb-3">Jumlah Dokumen</h6>
                         <div class="chart-wrapper">
-                            <canvas id="chartJumlah"></canvas>
+                            <canvas id="chart1"></canvas>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="chart-card">
-                        <h5 class="fw-bold text-center mb-3">Dokumen 5 Tahun Terakhir</h5>
+                        <h6 class="fw-bold text-center mb-3">Tren 5 Tahun Terakhir</h6>
                         <div class="chart-wrapper">
-                            <canvas id="chartTahun"></canvas>
+                            <canvas id="chart2"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="section-header">
+                <h3>Berita & Agenda</h3>
+                <p class="text-muted">Kabar terbaru dari Gedung DPRD Provinsi Kepulauan Riau</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <img src="https://source.unsplash.com/random/400x300/?meeting,conference" class="news-img" alt="Berita">
+                        <div class="news-body">
+                            <span class="news-date"><i class="far fa-calendar-alt me-2"></i> 28 Januari 2026</span>
+                            <h5 class="news-title"><a href="#">Rapat Paripurna Pengesahan Ranperda APBD Tahun Anggaran 2026</a></h5>
+                            <p class="small text-muted mb-3">Ketua DPRD memimpin rapat paripurna yang dihadiri oleh Gubernur...</p>
+                            <a href="#" class="text-primary small fw-bold text-decoration-none">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <img src="https://source.unsplash.com/random/400x300/?office,government" class="news-img" alt="Berita">
+                        <div class="news-body">
+                            <span class="news-date"><i class="far fa-calendar-alt me-2"></i> 27 Januari 2026</span>
+                            <h5 class="news-title"><a href="#">Kunjungan Kerja Komisi III ke Batam Terkait Infrastruktur</a></h5>
+                            <p class="small text-muted mb-3">Komisi III meninjau langsung pembangunan jalan provinsi di wilayah Batam...</p>
+                            <a href="#" class="text-primary small fw-bold text-decoration-none">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <img src="https://source.unsplash.com/random/400x300/?signing,document" class="news-img" alt="Berita">
+                        <div class="news-body">
+                            <span class="news-date"><i class="far fa-calendar-alt me-2"></i> 25 Januari 2026</span>
+                            <h5 class="news-title"><a href="#">Penandatanganan Nota Kesepahaman Program Legislasi Daerah</a></h5>
+                            <p class="small text-muted mb-3">DPRD dan Pemerintah Provinsi menyepakati 15 Ranperda prioritas...</p>
+                            <a href="#" class="text-primary small fw-bold text-decoration-none">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -170,29 +360,13 @@
     </section>
 
     <section class="link-lembaga-section">
-        <div class="container">
-            <h4 class="text-center fw-bold mb-5 text-secondary">TAUTAN TERKAIT</h4>
-            <div class="row justify-content-center text-center">
-                <div class="col-6 col-md-2 mb-4">
-                    <a href="#" class="logo-wrapper text-decoration-none">
-                        <div class="logo-placeholder"><i class="fas fa-globe-asia"></i><span>JDIH Nasional</span></div>
-                    </a>
-                </div>
-                <div class="col-6 col-md-2 mb-4">
-                    <a href="#" class="logo-wrapper text-decoration-none">
-                        <div class="logo-placeholder"><i class="fas fa-building"></i><span>Kemendagri</span></div>
-                    </a>
-                </div>
-                <div class="col-6 col-md-2 mb-4">
-                    <a href="#" class="logo-wrapper text-decoration-none">
-                        <div class="logo-placeholder"><i class="fas fa-map-marked-alt"></i><span>Pemprov Kepri</span></div>
-                    </a>
-                </div>
-                <div class="col-6 col-md-2 mb-4">
-                    <a href="#" class="logo-wrapper text-decoration-none">
-                        <div class="logo-placeholder"><i class="fas fa-balance-scale"></i><span>Kemenkumham</span></div>
-                    </a>
-                </div>
+        <div class="container text-center">
+            <h6 class="fw-bold text-muted mb-4 text-uppercase ls-1">Jaringan Terintegrasi</h6>
+            <div class="row justify-content-center">
+                <div class="col-6 col-md-2 mb-3"><div class="logo-item"><i class="fas fa-globe fa-2x text-secondary mb-2"></i><br><small class="fw-bold">JDIHN</small></div></div>
+                <div class="col-6 col-md-2 mb-3"><div class="logo-item"><i class="fas fa-university fa-2x text-secondary mb-2"></i><br><small class="fw-bold">Kemendagri</small></div></div>
+                <div class="col-6 col-md-2 mb-3"><div class="logo-item"><i class="fas fa-map-marked fa-2x text-secondary mb-2"></i><br><small class="fw-bold">Pemprov Kepri</small></div></div>
+                <div class="col-6 col-md-2 mb-3"><div class="logo-item"><i class="fas fa-balance-scale fa-2x text-secondary mb-2"></i><br><small class="fw-bold">Kemenkumham</small></div></div>
             </div>
         </div>
     </section>
@@ -200,68 +374,79 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-5 mb-4">
+                <div class="col-md-4 mb-4">
                     <h5 class="text-warning">JDIH DPRD KEPRI</h5>
-                    <p class="small text-secondary">Menyediakan akses mudah terhadap produk hukum daerah Provinsi Kepulauan Riau.</p>
+                    <p class="small text-white-50">Menyajikan informasi hukum yang akurat, lengkap, dan mudah diakses untuk mewujudkan masyarakat Kepulauan Riau yang sadar hukum.</p>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <h5>Menu</h5>
+                <div class="col-md-2 mb-4">
+                    <h5>Navigasi</h5>
                     <ul class="list-unstyled">
                         <li><a href="#">Beranda</a></li>
                         <li><a href="#">Produk Hukum</a></li>
+                        <li><a href="#">Statistik</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-3 mb-4">
+                    <h5>Tautan Luar</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Portal Kepri</a></li>
+                        <li><a href="#">JDIH Nasional</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
                     <h5>Kontak</h5>
-                    <p class="small text-secondary"><i class="fas fa-map-marker-alt me-2"></i> Pulau Dompak, Tanjung Pinang</p>
+                    <p class="small text-white-50 mb-1"><i class="fas fa-map-marker-alt me-2 text-warning"></i> Pulau Dompak, Tanjung Pinang</p>
+                    <p class="small text-white-50"><i class="fas fa-phone me-2 text-warning"></i> (0771) 1234567</p>
                 </div>
             </div>
-            <div class="text-center pt-3 border-top border-secondary small">
-                &copy; 2026 DPRD Provinsi Kepulauan Riau
+            <div class="border-top border-secondary pt-4 text-center small text-white-50 mt-3">
+                &copy; 2026 Sekretariat DPRD Provinsi Kepulauan Riau. Hak Cipta Dilindungi.
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        // Grafik 1: Bar Chart (Mirip Gambar Awal)
-        const ctx1 = document.getElementById('chartJumlah').getContext('2d');
+        // Chart 1: Bar Chart
+        const ctx1 = document.getElementById('chart1').getContext('2d');
         new Chart(ctx1, {
             type: 'bar',
             data: {
-                labels: ['Perda', 'Peraturan DPRD', 'Peraturan Gubernur', 'Keputusan'],
+                labels: ['Perda', 'Pergub', 'Keputusan', 'MoU'],
                 datasets: [{
-                    label: 'Total Dokumen',
-                    data: [45, 12, 28, 35],
-                    backgroundColor: ['#0056b3', '#ffc107', '#198754', '#dc3545'],
+                    label: 'Dokumen',
+                    data: [45, 28, 35, 12],
+                    backgroundColor: ['#0056b3', '#0dcaf0', '#ffc107', '#198754'],
                     borderRadius: 5
                 }]
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false, // Kunci agar mengikuti tinggi container
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true } }
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } }
             }
         });
 
-        // Grafik 2: Stacked Bar 5 Tahun
-        const ctx2 = document.getElementById('chartTahun').getContext('2d');
+        // Chart 2: Line Chart
+        const ctx2 = document.getElementById('chart2').getContext('2d');
         new Chart(ctx2, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: ['2022', '2023', '2024', '2025', '2026'],
-                datasets: [
-                    { label: 'Keputusan', data: [15, 20, 18, 22, 5], backgroundColor: '#0d6efd' },
-                    { label: 'Perda', data: [5, 8, 6, 7, 2], backgroundColor: '#ffc107' },
-                    { label: 'Lainnya', data: [2, 3, 4, 2, 1], backgroundColor: '#dc3545' }
-                ]
+                datasets: [{
+                    label: 'Total',
+                    data: [65, 70, 85, 90, 30],
+                    borderColor: '#0056b3',
+                    backgroundColor: 'rgba(0,86,179,0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false, // Kunci agar mengikuti tinggi container
-                plugins: { legend: { position: 'bottom' } },
-                scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } }
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } }
             }
         });
     </script>
