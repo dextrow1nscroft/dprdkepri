@@ -3,297 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JDIH Modern - Web3 Style</title>
+    <title>JDIH - Referensi DPRD Jatim</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --glass-bg: rgba(255, 255, 255, 0.65);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.8);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-            --text-dark: #1a202c;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #f3f4f6;
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
-            background: #ffffff; /* Fallback */
-            /* Background "Aurora" blobs */
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(216, 243, 220, 0.8) 0%, transparent 40%),
-                radial-gradient(circle at 90% 10%, rgba(235, 224, 255, 0.8) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(224, 247, 250, 0.6) 0%, transparent 50%);
-            background-attachment: fixed;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* Glassmorphism Utilities */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: var(--glass-border);
-            border-radius: 20px;
-            box-shadow: var(--glass-shadow);
-        }
-
-        /* Navbar Floating */
-        .navbar {
-            padding: 1rem 0;
-            transition: all 0.3s;
-        }
-        .nav-glass-container {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border-radius: 50px;
-            padding: 0.5rem 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 1);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-        .nav-link {
-            color: #4a5568 !important;
-            font-weight: 500;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #5b21b6 !important; /* Ungu gelap */
-            font-weight: 700;
-        }
-
-        /* Hero Section */
-        .hero-title {
-            font-weight: 800;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            background: -webkit-linear-gradient(45deg, #2563eb, #9333ea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
+            --warna-utama: #0d47a1; /* Biru tua instansi */
+            --warna-aksen: #ffc107; /* Kuning emas */
+            --warna-teks: #333;
         }
         
-        .search-container {
-            position: relative;
-            max-width: 700px;
-            margin: 0 auto;
+        body { font-family: Arial, Helvetica, sans-serif; background-color: #f4f6f9; color: var(--warna-teks); }
+
+        /* 1. Top Bar Informasi */
+        .top-info-bar {
+            background-color: #e9ecef;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid #dee2e6;
         }
         
-        .search-input {
-            border: none;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px 30px;
-            border-radius: 50px;
-            box-shadow: 0 10px 40px rgba(118, 75, 162, 0.15);
-            font-size: 1.1rem;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        .search-input:focus {
-            outline: none;
-            transform: scale(1.02);
-            box-shadow: 0 15px 50px rgba(118, 75, 162, 0.25);
-        }
-        .search-btn {
-            position: absolute;
-            right: 10px;
-            top: 8px;
-            background: var(--primary-gradient);
+        /* 2. Navbar Utama */
+        .navbar-jdih { background-color: #fff; border-bottom: 3px solid var(--warna-utama); padding: 15px 0; }
+        .navbar-brand img { height: 50px; margin-right: 15px; }
+        .judul-instansi { color: var(--warna-utama); font-weight: 700; font-size: 1.2rem; line-height: 1.2; }
+        .sub-judul { color: #666; font-size: 0.9rem; }
+        .nav-link { font-weight: 600; color: #444 !important; text-transform: uppercase; font-size: 0.9rem; padding: 0 15px !important; }
+        .nav-link:hover { color: var(--warna-utama) !important; }
+
+        /* 3. Hero Section (Pencarian) */
+        .hero-search-section {
+            /* Gunakan gambar gedung pemerintahan atau warna solid */
+            background: linear-gradient(rgba(13, 71, 161, 0.9), rgba(13, 71, 161, 0.9)), url('https://source.unsplash.com/random/1920x600/?government,building');
+            background-size: cover;
+            background-position: center;
             color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-weight: 600;
-            transition: transform 0.2s;
+            padding: 80px 0 100px;
+            text-align: center;
         }
-        .search-btn:hover { transform: scale(1.05); }
+        .welcome-text { font-weight: 700; letter-spacing: 1px; }
+        
+        /* Box Pencarian */
+        .search-box-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            margin-top: -50px; /* Efek menumpuk ke atas */
+            position: relative;
+            z-index: 10;
+        }
+        .btn-cari { background-color: var(--warna-utama); color: white; font-weight: bold; border: none; }
+        .btn-cari:hover { background-color: #0a367a; color: white;}
 
-        /* Chips / Filter Tags */
-        .filter-chip {
-            background: white;
-            border: 1px solid #e2e8f0;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            color: #64748b;
-        }
-        .filter-chip.active, .filter-chip:hover {
-            background: #eff6ff;
-            border-color: #bfdbfe;
-            color: #2563eb;
-            font-weight: 600;
-        }
-
-        /* Cards */
-        .doc-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(255,255,255,0.8);
-        }
-        .doc-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-        .icon-box {
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
+        /* Header Bagian */
+        .section-header {
+            position: relative;
+            margin-bottom: 40px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
         }
-        .icon-perda { background: #dbeafe; color: #2563eb; }
-        .icon-keputusan { background: #f3e8ff; color: #9333ea; }
+        .section-header h3 { font-weight: 700; margin: 0; color: var(--warna-utama); text-transform: uppercase; font-size: 1.5rem; }
+        .section-header::after {
+            content: "";
+            flex-grow: 1;
+            height: 3px;
+            background: var(--warna-aksen);
+            margin-left: 20px;
+        }
 
-        /* Floating Shapes Decoration */
-        .shape {
-            position: absolute;
-            filter: blur(50px);
-            z-index: -1;
-            animation: float 10s infinite ease-in-out;
+        /* Kartu List Dokumen */
+        .document-item {
+            background: #fff;
+            border-left: 5px solid var(--warna-utama);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s;
         }
-        .shape-1 {
-            top: -10%; left: -10%; width: 500px; height: 500px;
-            background: rgba(100, 200, 255, 0.3);
-        }
-        .shape-2 {
-            bottom: 20%; right: -10%; width: 400px; height: 400px;
-            background: rgba(200, 100, 255, 0.2);
-        }
-        
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(30px, 50px); }
-            100% { transform: translate(0, 0); }
-        }
+        .document-item:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        .doc-badge { background: var(--warna-aksen); color: #000; font-weight: bold; font-size: 0.8rem; padding: 5px 10px; border-radius: 4px; }
+        .doc-title { color: var(--warna-utama); text-decoration: none; font-weight: 700; font-size: 1.1rem; display: block; margin: 10px 0; }
+        .doc-meta { color: #777; font-size: 0.85rem; }
+
+        /* Footer */
+        footer { background-color: #222; color: #ccc; padding: 60px 0 30px; }
+        footer h5 { color: var(--warna-aksen); font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+        footer ul li { margin-bottom: 10px; }
+        footer a { color: #ccc; text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: var(--warna-aksen); }
+        .footer-bottom { background: #111; padding: 20px 0; margin-top: 40px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
+    <div class="top-info-bar">
+        <div class="container d-flex justify-content-between">
+            <div>
+                <i class="fas fa-phone-alt text-warning me-2"></i> (031) 3531126
+                <span class="mx-3 text-muted">|</span>
+                <i class="fas fa-envelope text-warning me-2"></i> jdih@email.go.id
+            </div>
+            <div>
+                <a href="#" class="text-dark text-decoration-none me-3"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-dark text-decoration-none me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-dark text-decoration-none"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container d-flex justify-content-center">
-            <div class="nav-glass-container d-flex align-items-center justify-content-between w-100" style="max-width: 1200px;">
-                <a class="navbar-brand d-flex align-items-center fw-bold" href="#" style="font-size: 1.5rem;">
-                    <span class="text-primary me-2"><i class="fas fa-cube"></i></span> JDIH<span style="color: #9333ea;">.Web3</span>
-                </a>
-                
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Produk Hukum</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Statistik</a></li>
-                    </ul>
-                    <a href="#" class="btn btn-dark rounded-pill px-4 py-2" style="background: var(--text-dark);">Login Admin</a>
+    <nav class="navbar navbar-expand-lg navbar-jdih sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-landmark fa-3x text-warning me-3"></i>
+                <div>
+                    <div class="judul-instansi">JDIH DPRD</div>
+                    <div class="sub-judul">Provinsi Inspirasi Jawa Timur</div>
                 </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Peraturan</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Peraturan Daerah</a></li>
+                            <li><a class="dropdown-item" href="#">Peraturan DPRD</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-outline-primary btn-sm mt-1 fw-bold" href="#">Kontak</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <section class="d-flex align-items-center justify-content-center text-center" style="min-height: 90vh; padding-top: 80px;">
+    <section class="hero-search-section mb-5">
         <div class="container">
-            <div class="badge bg-white text-primary shadow-sm rounded-pill px-3 py-2 mb-3 border">
-                <i class="fas fa-bolt me-1 text-warning"></i> Update Terbaru 2026
-            </div>
-            <h1 class="hero-title">Jaringan Dokumentasi<br>& Informasi Hukum</h1>
-            <p class="lead text-muted mb-5 mx-auto" style="max-width: 600px;">
-                Platform digital modern untuk transparansi produk hukum DPRD Provinsi Jawa Timur. Cari dokumen semudah browsing sosial media.
-            </p>
+            <h1 class="welcome-text mb-3 text-uppercase">Jaringan Dokumentasi & Informasi Hukum</h1>
+            <p class="lead mb-5">Wadah pendayagunaan bersama atas dokumen hukum secara tertib dan terpadu.</p>
+        </div>
+    </section>
 
-            <div class="search-container mb-4">
-                <input type="text" class="search-input" placeholder="Ketik kata kunci (misal: Pajak, Tata Ruang)...">
-                <button class="search-btn"><i class="fas fa-search me-2"></i> Cari</button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="search-box-container">
+                    <h4 class="mb-4 text-dark fw-bold"><i class="fas fa-search text-primary me-2"></i>Cari Dokumen Hukum</h4>
+                    <form class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold text-dark small">Jenis Produk</label>
+                            <select class="form-select bg-light">
+                                <option selected>Semua Jenis</option>
+                                <option>Peraturan Daerah (PERDA)</option>
+                                <option>Keputusan DPRD</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-bold text-dark small">Tahun</label>
+                            <select class="form-select bg-light">
+                                <option selected>Semua Tahun</option>
+                                <option>2026</option>
+                                <option>2025</option>
+                                <option>2024</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <label class="form-label fw-bold text-dark small">Kata Kunci</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-end-0" placeholder="Nomor atau Tentang...">
+                                <button type="submit" class="btn btn-cari px-4"><i class="fas fa-search"></i> Cari</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <div class="d-flex justify-content-center gap-2 flex-wrap">
-                <div class="filter-chip active">Semua</div>
-                <div class="filter-chip">Peraturan Daerah</div>
-                <div class="filter-chip">Keputusan DPRD</div>
-                <div class="filter-chip">Naskah Akademik</div>
+    <section class="py-5 mt-5">
+        <div class="container">
+            <div class="section-header">
+                <h3>Produk Hukum Terbaru</h3>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="document-item d-flex align-items-start">
+                        <div class="me-3 text-center pt-1">
+                             <i class="far fa-file-pdf fa-3x text-danger"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="doc-badge mb-2 d-inline-block">Peraturan Daerah</span>
+                            <a href="#" class="doc-title">Peraturan Daerah Provinsi Jawa Timur Nomor 12 Tahun 2026</a>
+                            <p class="mb-2 text-muted">Tentang Rencana Tata Ruang Wilayah Provinsi Jawa Timur Tahun 2023-2043.</p>
+                            <div class="doc-meta">
+                                <span class="me-3"><i class="far fa-calendar-alt me-1"></i> 28 Jan 2026</span>
+                                <span class="me-3"><i class="far fa-eye me-1"></i> 145 Kali dilihat</span>
+                            </div>
+                        </div>
+                        <div class="ms-3 align-self-center">
+                            <a href="#" class="btn btn-outline-primary btn-sm"><i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="document-item d-flex align-items-start">
+                        <div class="me-3 text-center pt-1">
+                             <i class="far fa-file-pdf fa-3x text-danger"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="doc-badge mb-2 d-inline-block" style="background: #e2e6ea;">Keputusan DPRD</span>
+                            <a href="#" class="doc-title">Keputusan Pimpinan DPRD Nomor 05 Tahun 2026</a>
+                            <p class="mb-2 text-muted">Tentang Penetapan Susunan Pimpinan dan Anggota Alat Kelengkapan Dewan.</p>
+                            <div class="doc-meta">
+                                <span class="me-3"><i class="far fa-calendar-alt me-1"></i> 15 Jan 2026</span>
+                                <span class="me-3"><i class="far fa-eye me-1"></i> 88 Kali dilihat</span>
+                            </div>
+                        </div>
+                        <div class="ms-3 align-self-center">
+                            <a href="#" class="btn btn-outline-primary btn-sm"><i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="#" class="btn btn-primary px-4">Lihat Seluruh Dokumen <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card shadow-sm border-0 mb-4 bg-primary text-white">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-chart-pie fa-3x mb-3 text-warning"></i>
+                            <h5 class="fw-bold">Total Dokumen</h5>
+                            <h2 class="display-4 fw-bold my-3 text-warning">1,250</h2>
+                            <p class="mb-0 small">Produk Hukum Telah Diupload</p>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm border-0">
+                         <div class="card-header bg-white fw-bold py-3 border-bottom-0" style="color: var(--warna-utama);">
+                            <i class="fas fa-bullhorn me-2"></i> Info Terkini
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item list-group-item-action py-3">
+                                <small class="text-muted"><i class="far fa-clock"></i> Hari ini</small>
+                                <h6 class="my-1 fw-bold text-dark">Rapat Paripurna Persetujuan Raperda APBD 2026</h6>
+                            </a>
+                             <a href="#" class="list-group-item list-group-item-action py-3">
+                                <small class="text-muted"><i class="far fa-clock"></i> Kemarin</small>
+                                <h6 class="my-1 fw-bold text-dark">Kunjungan Kerja Komisi A ke Surabaya</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-5">
-        <div class="container" style="max-width: 1200px;">
-            <div class="d-flex justify-content-between align-items-end mb-5">
-                <div>
-                    <h2 class="fw-bold mb-1">Dokumen Terbaru</h2>
-                    <p class="text-muted m-0">Update real-time dari database pusat</p>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 mb-4 me-auto">
+                    <h5>Tentang JDIH</h5>
+                    <p>JDIH DPRD adalah sistem pendayagunaan bersama peraturan perundang-undangan dan bahan dokumentasi hukum lainnya secara tertib, terpadu, dan berkesinambungan sebagai sarana pemberian pelayanan informasi hukum.</p>
                 </div>
-                <a href="#" class="text-primary text-decoration-none fw-bold">Lihat Semua <i class="fas fa-arrow-right ms-1"></i></a>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="glass doc-card p-4 h-100">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="icon-box icon-perda"><i class="fas fa-file-contract"></i></div>
-                            <span class="badge bg-light text-secondary border rounded-pill align-self-start px-3">2026</span>
-                        </div>
-                        <h5 class="fw-bold">Perda Nomor 12 Tahun 2026</h5>
-                        <p class="text-muted small mt-2">Tentang Rencana Tata Ruang Wilayah Provinsi Jawa Timur Tahun 2023-2043.</p>
-                        <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
-                            <small class="text-secondary"><i class="far fa-clock me-1"></i> 2 Hari lalu</small>
-                            <button class="btn btn-sm btn-outline-primary rounded-pill px-3">Detail</button>
-                        </div>
-                    </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Tautan Cepat</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="fas fa-chevron-right me-2 small text-warning"></i>Beranda</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2 small text-warning"></i>Peraturan Daerah</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2 small text-warning"></i>Statistik Hukum</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2 small text-warning"></i>Hubungi Kami</a></li>
+                    </ul>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="glass doc-card p-4 h-100">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="icon-box icon-keputusan"><i class="fas fa-gavel"></i></div>
-                            <span class="badge bg-light text-secondary border rounded-pill align-self-start px-3">2026</span>
-                        </div>
-                        <h5 class="fw-bold">Keputusan DPRD No. 8</h5>
-                        <p class="text-muted small mt-2">Tentang Perubahan Anggaran Pendapatan dan Belanja Daerah Tahun 2026.</p>
-                        <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
-                            <small class="text-secondary"><i class="far fa-clock me-1"></i> 1 Minggu lalu</small>
-                            <button class="btn btn-sm btn-outline-primary rounded-pill px-3">Detail</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="glass doc-card p-4 h-100">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="icon-box" style="background: #fee2e2; color: #ef4444;"><i class="fas fa-exclamation-circle"></i></div>
-                            <span class="badge bg-light text-secondary border rounded-pill align-self-start px-3">2025</span>
-                        </div>
-                        <h5 class="fw-bold">Nota Kesepakatan Bersama</h5>
-                        <p class="text-muted small mt-2">Kesepakatan Kebijakan Umum Anggaran Pendapatan dan Belanja Daerah.</p>
-                        <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
-                            <small class="text-secondary"><i class="far fa-clock me-1"></i> 1 Bulan lalu</small>
-                            <button class="btn btn-sm btn-outline-primary rounded-pill px-3">Detail</button>
-                        </div>
-                    </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Kantor Kami</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-map-marker-alt me-3 text-warning"></i> Jl. Indrapura No.1, Surabaya, Jawa Timur</li>
+                        <li class="mb-3"><i class="fas fa-phone me-3 text-warning"></i> +62 31 3531126</li>
+                        <li class="mb-3"><i class="fas fa-envelope me-3 text-warning"></i> support@jdih.go.id</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
-
-    <footer class="text-center py-5 mt-5">
-        <div class="container">
-            <hr class="mb-5" style="opacity: 0.1;">
-            <p class="text-muted small">© 2026 JDIH DPRD Jatim (Konsep Web3). Dibuat dengan <i class="fas fa-heart text-danger"></i> dan Kode.</p>
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        &copy; 2026 JDIH DPRD Provinsi Jawa Timur. Hak Cipta Dilindungi Undang-Undang.
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
