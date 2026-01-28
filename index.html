@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JDIH - Referensi DPRD Jatim</title>
+    <title>JDIH - DPRD Provinsi Kepulauan Riau</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --warna-utama: #0d47a1; /* Biru tua instansi */
+            /* Menggunakan warna Biru Laut khas Kepri */
+            --warna-utama: #0056b3; 
             --warna-aksen: #ffc107; /* Kuning emas */
             --warna-teks: #333;
         }
         
-        body { font-family: Arial, Helvetica, sans-serif; background-color: #f4f6f9; color: var(--warna-teks); }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f6f9; color: var(--warna-teks); }
 
         /* 1. Top Bar Informasi */
         .top-info-bar {
@@ -26,23 +27,22 @@
         
         /* 2. Navbar Utama */
         .navbar-jdih { background-color: #fff; border-bottom: 3px solid var(--warna-utama); padding: 15px 0; }
-        .navbar-brand img { height: 50px; margin-right: 15px; }
         .judul-instansi { color: var(--warna-utama); font-weight: 700; font-size: 1.2rem; line-height: 1.2; }
-        .sub-judul { color: #666; font-size: 0.9rem; }
+        .sub-judul { color: #666; font-size: 0.9rem; letter-spacing: 0.5px; }
         .nav-link { font-weight: 600; color: #444 !important; text-transform: uppercase; font-size: 0.9rem; padding: 0 15px !important; }
         .nav-link:hover { color: var(--warna-utama) !important; }
 
         /* 3. Hero Section (Pencarian) */
         .hero-search-section {
-            /* Gunakan gambar gedung pemerintahan atau warna solid */
-            background: linear-gradient(rgba(13, 71, 161, 0.9), rgba(13, 71, 161, 0.9)), url('https://source.unsplash.com/random/1920x600/?government,building');
+            /* Background gradasi biru laut */
+            background: linear-gradient(rgba(0, 86, 179, 0.85), rgba(0, 40, 100, 0.9)), url('https://source.unsplash.com/random/1920x600/?ocean,island,government');
             background-size: cover;
             background-position: center;
             color: white;
             padding: 80px 0 100px;
             text-align: center;
         }
-        .welcome-text { font-weight: 700; letter-spacing: 1px; }
+        .welcome-text { font-weight: 700; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         
         /* Box Pencarian */
         .search-box-container {
@@ -50,12 +50,12 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            margin-top: -50px; /* Efek menumpuk ke atas */
+            margin-top: -50px;
             position: relative;
             z-index: 10;
         }
         .btn-cari { background-color: var(--warna-utama); color: white; font-weight: bold; border: none; }
-        .btn-cari:hover { background-color: #0a367a; color: white;}
+        .btn-cari:hover { background-color: #003d82; color: white;}
 
         /* Header Bagian */
         .section-header {
@@ -88,7 +88,7 @@
         .doc-meta { color: #777; font-size: 0.85rem; }
 
         /* Footer */
-        footer { background-color: #222; color: #ccc; padding: 60px 0 30px; }
+        footer { background-color: #1a252f; color: #ccc; padding: 60px 0 30px; }
         footer h5 { color: var(--warna-aksen); font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
         footer ul li { margin-bottom: 10px; }
         footer a { color: #ccc; text-decoration: none; transition: color 0.2s; }
@@ -101,9 +101,9 @@
     <div class="top-info-bar">
         <div class="container d-flex justify-content-between">
             <div>
-                <i class="fas fa-phone-alt text-warning me-2"></i> (031) 3531126
+                <i class="fas fa-phone-alt text-warning me-2"></i> (0771) 1234567 
                 <span class="mx-3 text-muted">|</span>
-                <i class="fas fa-envelope text-warning me-2"></i> jdih@email.go.id
+                <i class="fas fa-envelope text-warning me-2"></i> setwan@kepriprov.go.id
             </div>
             <div>
                 <a href="#" class="text-dark text-decoration-none me-3"><i class="fab fa-facebook"></i></a>
@@ -119,7 +119,7 @@
                 <i class="fas fa-landmark fa-3x text-warning me-3"></i>
                 <div>
                     <div class="judul-instansi">JDIH DPRD</div>
-                    <div class="sub-judul">Provinsi Inspirasi Jawa Timur</div>
+                    <div class="sub-judul">PROVINSI KEPULAUAN RIAU</div>
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -129,13 +129,14 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Peraturan</a>
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Produk Hukum</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Peraturan Daerah</a></li>
-                            <li><a class="dropdown-item" href="#">Peraturan DPRD</a></li>
+                            <li><a class="dropdown-item" href="#">Peraturan Gubernur</a></li>
+                            <li><a class="dropdown-item" href="#">Keputusan DPRD</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Anggota Dewan</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
                     <li class="nav-item ms-2">
                         <a class="btn btn-outline-primary btn-sm mt-1 fw-bold" href="#">Kontak</a>
@@ -147,8 +148,8 @@
 
     <section class="hero-search-section mb-5">
         <div class="container">
-            <h1 class="welcome-text mb-3 text-uppercase">Jaringan Dokumentasi & Informasi Hukum</h1>
-            <p class="lead mb-5">Wadah pendayagunaan bersama atas dokumen hukum secara tertib dan terpadu.</p>
+            <h1 class="welcome-text mb-3 text-uppercase">JDIH DPRD Provinsi Kepulauan Riau</h1>
+            <p class="lead mb-5">Pusat Jaringan Dokumentasi dan Informasi Hukum Terpadu Wilayah Kepulauan Riau.</p>
         </div>
     </section>
 
@@ -156,7 +157,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="search-box-container">
-                    <h4 class="mb-4 text-dark fw-bold"><i class="fas fa-search text-primary me-2"></i>Cari Dokumen Hukum</h4>
+                    <h4 class="mb-4 text-dark fw-bold"><i class="fas fa-search text-primary me-2"></i>Cari Produk Hukum Kepri</h4>
                     <form class="row g-3">
                         <div class="col-md-4">
                             <label class="form-label fw-bold text-dark small">Jenis Produk</label>
@@ -202,11 +203,11 @@
                         </div>
                         <div class="flex-grow-1">
                             <span class="doc-badge mb-2 d-inline-block">Peraturan Daerah</span>
-                            <a href="#" class="doc-title">Peraturan Daerah Provinsi Jawa Timur Nomor 12 Tahun 2026</a>
-                            <p class="mb-2 text-muted">Tentang Rencana Tata Ruang Wilayah Provinsi Jawa Timur Tahun 2023-2043.</p>
+                            <a href="#" class="doc-title">Perda Provinsi Kepulauan Riau Nomor 01 Tahun 2026</a>
+                            <p class="mb-2 text-muted">Tentang Rencana Pembangunan Jangka Menengah Daerah (RPJMD) Provinsi Kepulauan Riau.</p>
                             <div class="doc-meta">
-                                <span class="me-3"><i class="far fa-calendar-alt me-1"></i> 28 Jan 2026</span>
-                                <span class="me-3"><i class="far fa-eye me-1"></i> 145 Kali dilihat</span>
+                                <span class="me-3"><i class="far fa-calendar-alt me-1"></i> 20 Jan 2026</span>
+                                <span class="me-3"><i class="far fa-eye me-1"></i> 210 Kali dilihat</span>
                             </div>
                         </div>
                         <div class="ms-3 align-self-center">
@@ -220,11 +221,29 @@
                         </div>
                         <div class="flex-grow-1">
                             <span class="doc-badge mb-2 d-inline-block" style="background: #e2e6ea;">Keputusan DPRD</span>
-                            <a href="#" class="doc-title">Keputusan Pimpinan DPRD Nomor 05 Tahun 2026</a>
-                            <p class="mb-2 text-muted">Tentang Penetapan Susunan Pimpinan dan Anggota Alat Kelengkapan Dewan.</p>
+                            <a href="#" class="doc-title">Keputusan DPRD Prov. Kepri Nomor 05 Tahun 2026</a>
+                            <p class="mb-2 text-muted">Tentang Penetapan Program Pembentukan Peraturan Daerah Provinsi Kepulauan Riau Tahun 2026.</p>
                             <div class="doc-meta">
-                                <span class="me-3"><i class="far fa-calendar-alt me-1"></i> 15 Jan 2026</span>
-                                <span class="me-3"><i class="far fa-eye me-1"></i> 88 Kali dilihat</span>
+                                <span class="me-3"><i class="far fa-calendar-alt me-1"></i> 10 Jan 2026</span>
+                                <span class="me-3"><i class="far fa-eye me-1"></i> 95 Kali dilihat</span>
+                            </div>
+                        </div>
+                        <div class="ms-3 align-self-center">
+                            <a href="#" class="btn btn-outline-primary btn-sm"><i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="document-item d-flex align-items-start">
+                        <div class="me-3 text-center pt-1">
+                             <i class="far fa-file-pdf fa-3x text-danger"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <span class="doc-badge mb-2 d-inline-block">Peraturan Gubernur</span>
+                            <a href="#" class="doc-title">Pergub Kepulauan Riau Nomor 14 Tahun 2025</a>
+                            <p class="mb-2 text-muted">Tentang Tata Cara Pemberian Beasiswa Pendidikan Bagi Mahasiswa Kepulauan Riau.</p>
+                            <div class="doc-meta">
+                                <span class="me-3"><i class="far fa-calendar-alt me-1"></i> 15 Des 2025</span>
+                                <span class="me-3"><i class="far fa-eye me-1"></i> 540 Kali dilihat</span>
                             </div>
                         </div>
                         <div class="ms-3 align-self-center">
@@ -240,25 +259,25 @@
                 <div class="col-lg-4">
                     <div class="card shadow-sm border-0 mb-4 bg-primary text-white">
                         <div class="card-body text-center p-4">
-                            <i class="fas fa-chart-pie fa-3x mb-3 text-warning"></i>
-                            <h5 class="fw-bold">Total Dokumen</h5>
-                            <h2 class="display-4 fw-bold my-3 text-warning">1,250</h2>
-                            <p class="mb-0 small">Produk Hukum Telah Diupload</p>
+                            <i class="fas fa-chart-column fa-3x mb-3 text-warning"></i>
+                            <h5 class="fw-bold">Database Hukum</h5>
+                            <h2 class="display-4 fw-bold my-3 text-warning">845</h2>
+                            <p class="mb-0 small">Dokumen Hukum Kepulauan Riau</p>
                         </div>
                     </div>
 
                     <div class="card shadow-sm border-0">
                          <div class="card-header bg-white fw-bold py-3 border-bottom-0" style="color: var(--warna-utama);">
-                            <i class="fas fa-bullhorn me-2"></i> Info Terkini
+                            <i class="fas fa-bullhorn me-2"></i> Agenda DPRD Kepri
                         </div>
                         <div class="list-group list-group-flush">
                             <a href="#" class="list-group-item list-group-item-action py-3">
                                 <small class="text-muted"><i class="far fa-clock"></i> Hari ini</small>
-                                <h6 class="my-1 fw-bold text-dark">Rapat Paripurna Persetujuan Raperda APBD 2026</h6>
+                                <h6 class="my-1 fw-bold text-dark">Rapat Paripurna HUT Provinsi Kepulauan Riau</h6>
                             </a>
                              <a href="#" class="list-group-item list-group-item-action py-3">
                                 <small class="text-muted"><i class="far fa-clock"></i> Kemarin</small>
-                                <h6 class="my-1 fw-bold text-dark">Kunjungan Kerja Komisi A ke Surabaya</h6>
+                                <h6 class="my-1 fw-bold text-dark">Kunjungan Kerja ke Kabupaten Natuna</h6>
                             </a>
                         </div>
                     </div>
@@ -271,24 +290,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5 mb-4 me-auto">
-                    <h5>Tentang JDIH</h5>
-                    <p>JDIH DPRD adalah sistem pendayagunaan bersama peraturan perundang-undangan dan bahan dokumentasi hukum lainnya secara tertib, terpadu, dan berkesinambungan sebagai sarana pemberian pelayanan informasi hukum.</p>
+                    <h5>Tentang JDIH Kepri</h5>
+                    <p>Sistem informasi hukum terpadu DPRD Provinsi Kepulauan Riau untuk memudahkan masyarakat mengakses produk hukum daerah secara transparan.</p>
                 </div>
                 <div class="col-md-3 mb-4">
-                    <h5>Tautan Cepat</h5>
+                    <h5>Menu Utama</h5>
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="fas fa-chevron-right me-2 small text-warning"></i>Beranda</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right me-2 small text-warning"></i>Peraturan Daerah</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right me-2 small text-warning"></i>Statistik Hukum</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2 small text-warning"></i>Produk Hukum</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right me-2 small text-warning"></i>Anggota Dewan</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right me-2 small text-warning"></i>Hubungi Kami</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <h5>Kantor Kami</h5>
+                <div class="col-md-4 mb-4">
+                    <h5>Kantor Sekretariat</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-map-marker-alt me-3 text-warning"></i> Jl. Indrapura No.1, Surabaya, Jawa Timur</li>
-                        <li class="mb-3"><i class="fas fa-phone me-3 text-warning"></i> +62 31 3531126</li>
-                        <li class="mb-3"><i class="fas fa-envelope me-3 text-warning"></i> support@jdih.go.id</li>
+                        <li class="mb-3"><i class="fas fa-map-marker-alt me-3 text-warning"></i> Pulau Dompak, Kec. Bukit Bestari, Kota Tanjung Pinang, Kepulauan Riau</li>
+                        <li class="mb-3"><i class="fas fa-phone me-3 text-warning"></i> (0771) 1234567</li>
+                        <li class="mb-3"><i class="fas fa-envelope me-3 text-warning"></i> humas@dprd.kepriprov.go.id</li>
                     </ul>
                 </div>
             </div>
@@ -297,7 +316,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-12">
-                        &copy; 2026 JDIH DPRD Provinsi Jawa Timur. Hak Cipta Dilindungi Undang-Undang.
+                        &copy; 2026 JDIH DPRD Provinsi Kepulauan Riau. Hak Cipta Dilindungi Undang-Undang.
                     </div>
                 </div>
             </div>
